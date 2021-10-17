@@ -271,7 +271,7 @@ async def delete(ctx: SlashContext, n: int):
         raise UserIsNotHostError()
 
     # Delete session
-    db['session'].delete_one({'_id': ObjectId(str(session['_id']))})
+    db['session'].delete_one({'_id': session.id})
 
     # Send a success message
     await ctx.send("Ta session a bien été supprimée !", hidden=True)
