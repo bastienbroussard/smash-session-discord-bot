@@ -1,1 +1,1 @@
-discord: python main.py
+discord: python src/main.py
