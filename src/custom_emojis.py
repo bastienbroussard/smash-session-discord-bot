@@ -7,6 +7,7 @@ class CustomEmojis:
     adapter_emoji = None
 
     def __init__(self, bot: Bot):
-        CustomEmojis.switch_emoji = bot.get_emoji(801390051463397386)
-        CustomEmojis.screen_emoji = bot.get_emoji(801390701958791189)
-        CustomEmojis.adapter_emoji = bot.get_emoji(885488021355495444)
+        CustomEmojis.switch_emoji = [emoji for emoji in bot.emojis if emoji.name == 'switch'][0]
+        CustomEmojis.screen_emoji = [emoji for emoji in bot.emojis if emoji.name == 'screen'][0]
+        CustomEmojis.adapter_emoji = [emoji for emoji in bot.emojis if emoji.name == 'adapter'][0]
+        print(bot.emojis)
