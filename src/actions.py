@@ -171,8 +171,8 @@ def update_session(session: Session, places: int, address: str, comment: str):
         fields['comment'] = comment
 
     # Update database
-    self.db['session'].update_one({
-        '_id': ObjectId(str(session['_id']))
+    db['session'].update_one({
+        '_id': session.id
     }, {
         '$set': {
             'date_start': date_start,
