@@ -22,7 +22,7 @@ from equipment import Equipment
 
 # Bot initialization
 bot = Bot(command_prefix="!", self_bot=True, help_command=None, intents=Intents.default())
-slash = SlashCommand(bot, sync_commands=True)
+slash = SlashCommand(bot, sync_commands=False)
 
 
 #############
