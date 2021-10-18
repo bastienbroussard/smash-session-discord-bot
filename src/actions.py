@@ -174,11 +174,7 @@ def update_session(session: Session, places: int, address: str, comment: str):
     db['session'].update_one({
         '_id': session.id
     }, {
-        '$set': {
-            'date_start': date_start,
-            'date_end': date_end,
-            'places': places
-        }
+        '$set': fields
     })
 
 

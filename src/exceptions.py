@@ -24,7 +24,7 @@ class SessionIsFullError(Exception):
 class UserIsHostError(Exception):
     def __str__(self) -> str:
         return (
-            "Tu es l\'hôte de la session ! "
+            "Tu es l'hôte de la session ! "
             "Utilise la commande `/delete` si tu veux supprimer ta session... :pensive:"
         )
 

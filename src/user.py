@@ -136,11 +136,11 @@ class User:
 
         :return: A string representing the user details.
         """
-        user_str = f'<@{self._id}> '
+        user_str = f"<@{self._id}> "
         for _ in range(self._consoles):
-            user_str += f'{str(CustomEmojis.switch_emoji)} '
+            user_str += f"<:{CustomEmojis.switch_emoji.name}:{CustomEmojis.switch_emoji.id}> "
         for _ in range(self._screens):
-            user_str += f'{str(CustomEmojis.screen_emoji)} '
+            user_str += f"<:{CustomEmojis.screen_emoji.name}:{CustomEmojis.screen_emoji.id}> "
         for _ in range(self._adapters):
-            user_str += f'{str(CustomEmojis.adapter_emoji)} '
+            user_str += f"<:{CustomEmojis.adapter_emoji.name}:{CustomEmojis.adapter_emoji.id}> "
         return user_str
