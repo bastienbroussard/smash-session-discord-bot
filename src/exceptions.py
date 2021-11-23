@@ -37,3 +37,8 @@ class UserIsNotHostError(Exception):
 class UserIsNotParticipantError(Exception):
     def __str__(self) -> str:
         return "Euh... Tu ne participes pas à cette session... :sweat_smile:"
+
+
+class TooManyEquipmentError(Exception):
+    def __str__(self) -> str:
+        return "Euh t'abuses pas un peu sur les équipements là ? :thinking:"

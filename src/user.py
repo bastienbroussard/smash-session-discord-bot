@@ -1,8 +1,20 @@
+#############
+#  IMPORTS  #
+#############
+# General imports
 import discord.user
 
+# Local imports
 from custom_emojis import CustomEmojis
 from equipment import Equipment
+from exceptions import TooManyEquipmentError
 
+###############
+#  CONSTANTS  #
+###############
+MAX_CONSOLES = 3
+MAX_SCREENS = 3
+MAX_ADAPTERS = 3
 
 class User:
     ##################
@@ -26,8 +38,8 @@ class User:
             raise ValueError("Tu ne peux pas apporter un nombre négatif d'équipement... :sweat_smile:")
 
         # Check if any equipment is too high
-        if self._consoles > 3 or self._screens > 3 or self._adapters > 3:
-            raise ValueError("Euh t'abuses pas un peu sur les équipements là ? :thinking:")
+        if self._consoles > MAX_CONSOLES or self._screens > MAX_SCREENS or self._adapters > MAX_ADAPTERS:
+            raise TooManyEquipmentError()
 
     @classmethod
     def from_author(cls, author: discord.user.User, consoles: int = 0, screens: int = 0, adapters: int = 0):
@@ -50,10 +62,16 @@ class User:
         :param equipment: The kind of equipment to be incremented.
         """
         if equipment == Equipment.Console:
+            if self._consoles + 1 > MAX_CONSOLES:
+                raise TooManyEquipmentError()
             self._consoles += 1
         elif equipment == Equipment.Screen:
+            if self._screens + 1 > MAX_SCREENS:
+                raise TooManyEquipmentError()
             self._screens += 1
         elif equipment == Equipment.Adapter:
+            if self._adapters + 1 > MAX_ADAPTERS:
+                raise TooManyEquipmentError()
             self._adapters += 1
 
     ################
@@ -139,17 +157,17 @@ class User:
         user_str = f"<@{self._id}> "
         for _ in range(self._consoles):
             if CustomEmojis.switch_emoji is not None:
-                user_str += f"<:{CustomEmojis.switch_emoji.name}:{CustomEmojis.switch_emoji.id}> "
+                user_str += f"{str(CustomEmojis.switch_emoji)} "
             else:
                 user_str += ":switch: "
         for _ in range(self._screens):
             if CustomEmojis.screen_emoji is not None:
-                user_str += f"<:{CustomEmojis.screen_emoji.name}:{CustomEmojis.screen_emoji.id}> "
+                user_str += f"{str(CustomEmojis.screen_emoji)} "
             else:
                 user_str += ":screen: "
         for _ in range(self._adapters):
             if CustomEmojis.adapter_emoji is not None:
-                user_str += f"<:{CustomEmojis.adapter_emoji.name}:{CustomEmojis.adapter_emoji.id}> "
+                user_str += f"{str(CustomEmojis.adapter_emoji)} "
             else:
                 user_str += ":gc: "
         return user_str

@@ -12,7 +12,7 @@ from discord_slash import SlashCommand, SlashContext, ComponentContext
 from discord_slash.model import SlashCommandOptionType
 from discord_slash.utils.manage_components import create_select, create_select_option, create_actionrow
 
-# Local-relative imports
+# Local imports
 from session import Session
 from user import User
 from custom_emojis import CustomEmojis
