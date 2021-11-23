@@ -58,7 +58,6 @@ async def on_component_callback_error(ctx: ComponentContext, exception: Exceptio
 
     :param ctx: The context.
     :param exception: The exception caught.
-    :return:
     """
     await ctx.send(str(exception), hidden=True)
 
