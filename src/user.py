@@ -156,9 +156,9 @@ class User:
         """
         user_str = f"<@{self._id}> "
         for _ in range(self._consoles):
-            user_str += f"<:switch:981506666287743027> "
+            user_str += f"<:switch:981506666287743027> test"
         for _ in range(self._screens):
-            user_str += f"<:screen:981507321802948628> "
+            user_str += f"<:screen:981507321802948628> test"
         for _ in range(self._adapters):
-            user_str += f"<:gc:981507354359136306> "
+            user_str += f"<:gc:981507354359136306> test"
         return user_str
