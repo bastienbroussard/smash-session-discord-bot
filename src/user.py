@@ -156,18 +156,9 @@ class User:
         """
         user_str = f"<@{self._id}> "
         for _ in range(self._consoles):
-            if CustomEmojis.switch_emoji is not None:
-                user_str += f"{str(CustomEmojis.switch_emoji)} "
-            else:
-                user_str += ":switch: "
+            user_str += f"<:switch:981506666287743027> "
         for _ in range(self._screens):
-            if CustomEmojis.screen_emoji is not None:
-                user_str += f"{str(CustomEmojis.screen_emoji)} "
-            else:
-                user_str += ":screen: "
+            user_str += f"<:screen:981507321802948628> "
         for _ in range(self._adapters):
-            if CustomEmojis.adapter_emoji is not None:
-                user_str += f"{str(CustomEmojis.adapter_emoji)} "
-            else:
-                user_str += ":gc: "
+            user_str += f"<:gc:981507354359136306> "
         return user_str
